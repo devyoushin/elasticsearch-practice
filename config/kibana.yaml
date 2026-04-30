@@ -1,0 +1,52 @@
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: my-cluster
+  namespace: elasticsearch
+spec:
+  version: 8.15.0
+  count: 1
+  elasticsearchRef:
+    name: my-cluster
+  config:
+    xpack.fleet.enabled: true
+    xpack.reporting.enabled: true
+    server.publicBaseUrl: "https://kibana.example.com"
+  podTemplate:
+    spec:
+      containers:
+        - name: kibana
+          resources:
+            requests:
+              memory: 1Gi
+              cpu: "0.5"
+            limits:
+              memory: 1Gi
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: false
+---
+# Kibana Ingress (nginx)
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kibana
+  namespace: elasticsearch
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: kibana.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: my-cluster-kb-http
+                port:
+                  number: 5601

@@ -1,0 +1,128 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: my-cluster
+  namespace: elasticsearch
+spec:
+  version: 8.15.0
+
+  # HTTP 레이어 TLS (ECK 기본 활성화)
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: false
+
+  nodeSets:
+    # Dedicated master nodes (3개 - quorum 보장)
+    - name: masters
+      count: 3
+      config:
+        node.roles: ["master"]
+        xpack.ml.enabled: false
+      podTemplate:
+        metadata:
+          labels:
+            role: master
+        spec:
+          initContainers:
+            - name: sysctl
+              securityContext:
+                privileged: true
+                runAsUser: 0
+              command: ["sh", "-c", "sysctl -w vm.max_map_count=262144"]
+          containers:
+            - name: elasticsearch
+              resources:
+                requests:
+                  memory: 2Gi
+                  cpu: "1"
+                limits:
+                  memory: 2Gi
+              env:
+                - name: ES_JAVA_OPTS
+                  value: "-Xms1g -Xmx1g"
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data
+          spec:
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 10Gi
+            storageClassName: gp3
+
+    # Dedicated data nodes - hot tier
+    - name: data-hot
+      count: 3
+      config:
+        node.roles: ["data_hot", "data_content", "ingest"]
+        node.attr.data: hot
+      podTemplate:
+        metadata:
+          labels:
+            role: data-hot
+        spec:
+          initContainers:
+            - name: sysctl
+              securityContext:
+                privileged: true
+                runAsUser: 0
+              command: ["sh", "-c", "sysctl -w vm.max_map_count=262144"]
+          containers:
+            - name: elasticsearch
+              resources:
+                requests:
+                  memory: 8Gi
+                  cpu: "4"
+                limits:
+                  memory: 8Gi
+              env:
+                - name: ES_JAVA_OPTS
+                  value: "-Xms4g -Xmx4g"
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data
+          spec:
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 500Gi
+            storageClassName: gp3
+
+    # Dedicated data nodes - warm tier
+    - name: data-warm
+      count: 2
+      config:
+        node.roles: ["data_warm"]
+        node.attr.data: warm
+      podTemplate:
+        metadata:
+          labels:
+            role: data-warm
+        spec:
+          initContainers:
+            - name: sysctl
+              securityContext:
+                privileged: true
+                runAsUser: 0
+              command: ["sh", "-c", "sysctl -w vm.max_map_count=262144"]
+          containers:
+            - name: elasticsearch
+              resources:
+                requests:
+                  memory: 4Gi
+                  cpu: "2"
+                limits:
+                  memory: 4Gi
+              env:
+                - name: ES_JAVA_OPTS
+                  value: "-Xms2g -Xmx2g"
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data
+          spec:
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 2Ti
+            storageClassName: gp3

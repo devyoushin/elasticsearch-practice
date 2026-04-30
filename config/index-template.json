@@ -1,0 +1,80 @@
+{
+  "_meta": {
+    "description": "Template for application logs data stream"
+  },
+  "index_patterns": ["logs-app-*"],
+  "data_stream": {},
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 1,
+      "refresh_interval": "5s",
+      "index.lifecycle.name": "logs-ilm-policy"
+    },
+    "mappings": {
+      "dynamic": "strict",
+      "_source": {
+        "enabled": true
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date",
+          "format": "strict_date_optional_time||epoch_millis"
+        },
+        "message": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "log": {
+          "properties": {
+            "level": { "type": "keyword" },
+            "logger": { "type": "keyword" }
+          }
+        },
+        "service": {
+          "properties": {
+            "name": { "type": "keyword" },
+            "version": { "type": "keyword" },
+            "environment": { "type": "keyword" }
+          }
+        },
+        "host": {
+          "properties": {
+            "name": { "type": "keyword" },
+            "ip": { "type": "ip" }
+          }
+        },
+        "http": {
+          "properties": {
+            "request": {
+              "properties": {
+                "method": { "type": "keyword" },
+                "url": { "type": "keyword" }
+              }
+            },
+            "response": {
+              "properties": {
+                "status_code": { "type": "integer" }
+              }
+            }
+          }
+        },
+        "duration_ms": { "type": "long" },
+        "error": {
+          "properties": {
+            "message": { "type": "text" },
+            "type": { "type": "keyword" },
+            "stack_trace": { "type": "text", "index": false }
+          }
+        }
+      }
+    }
+  },
+  "priority": 200,
+  "composed_of": []
+}
