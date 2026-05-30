@@ -6,7 +6,7 @@
 
 `/add-troubleshooting {file-path} {symptom}`
 
-예시: `/add-troubleshooting docs/guides/operations/index-management.md "인덱스 생성 실패"`
+예시: `/add-troubleshooting docs/operations/index-management.md "인덱스 생성 실패"`
 
 ## 작성 형식
 

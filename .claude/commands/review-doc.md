@@ -6,7 +6,7 @@
 
 `/review-doc {file-path}`
 
-예시: `/review-doc docs/guides/operations/index-management.md`
+예시: `/review-doc docs/operations/index-management.md`
 
 ## 검토 항목
 

@@ -10,7 +10,7 @@
 
 ## 작업 순서
 
-1. `docs/guides/operations/{topic}-runbook.md` 경로로 파일 생성
+1. `docs/operations/{topic}-runbook.md` 경로로 파일 생성
 2. `docs/templates/runbook.md` 템플릿 기반으로 스캐폴딩
 3. 사전 조건, 단계별 절차, 롤백, 검증 포함
 
