@@ -1,68 +1,44 @@
-# Elasticsearch Practice
+# elasticsearch-practice
 
-ECK(Elastic Cloud on Kubernetes) 기반 Elasticsearch 8.x 운영 지식 베이스입니다.
+EKS + ECK 기준으로 Elasticsearch 8.x 운영 지식을 정리한 개인 학습 문서입니다.
 
-## 환경 정보
+## 빠른 시작
 
-| 항목 | 값 |
-|------|-----|
-| Platform | EKS (Kubernetes) |
-| Elasticsearch | 8.x |
-| Operator | ECK (Elastic Cloud on Kubernetes) v2.x |
-| Kibana | 8.x |
-| Namespace (operator) | `elastic-system` |
-| Namespace (cluster) | `elasticsearch` |
-| Cluster name | `my-cluster` |
+- 처음 볼 문서: `docs/guides/core-concepts/cluster-architecture.md`
+- 전체 흐름: 핵심 개념 -> 운영 -> 성능 -> 보안 -> 관측
+- AI 작업 지침: `CLAUDE.md`
 
-## 디렉토리 구조
+## 구조
 
-```
+```text
 elasticsearch-practice/
-├── .claude/               # Claude Code 설정 및 커스텀 커맨드
-├── agents/                # 전문 에이전트 정의
-├── rules/                 # 문서 작성 및 코드 컨벤션
-├── templates/             # 문서 템플릿
-├── config/                # ECK 클러스터 설정 예시
-└── docs/                  # 운영 지식 문서
-    ├── core-concepts/     # 핵심 개념
-    ├── operations/        # 운영 작업
-    ├── performance/       # 성능 최적화
-    ├── security/          # 보안 설정
-    └── observability/     # 모니터링 및 로그
+├── README.md
+├── CLAUDE.md
+├── docs/
+│   ├── guides/     # 학습 문서
+│   ├── rules/      # 작성/운영 규칙
+│   ├── templates/  # 재사용 템플릿
+│   └── agents/     # Claude 에이전트 프롬프트
+└── ops/
+    └── config/     # ECK 설정 예시
 ```
 
 ## 학습 경로
 
-### 1단계: 핵심 개념
-- [클러스터 아키텍처](docs/core-concepts/cluster-architecture.md)
-- [인덱스 설계](docs/core-concepts/index-design.md)
-- [Query DSL](docs/core-concepts/query-dsl.md)
+| 단계 | 위치 |
+|------|------|
+| 핵심 개념 | `docs/guides/core-concepts/` |
+| 운영 | `docs/guides/operations/` |
+| 성능 | `docs/guides/performance/` |
+| 보안 | `docs/guides/security/` |
+| 관측 | `docs/guides/observability/` |
 
-### 2단계: 운영
-- [인덱스 관리](docs/operations/index-management.md)
-- [클러스터 관리](docs/operations/cluster-management.md)
-- [스냅샷 & 복구](docs/operations/snapshot-restore.md)
+## 환경
 
-### 3단계: 성능 최적화
-- [인덱싱 성능](docs/performance/indexing-performance.md)
-- [검색 성능](docs/performance/search-performance.md)
-- [리소스 튜닝](docs/performance/resource-tuning.md)
-
-### 4단계: 보안
-- [인증](docs/security/authentication.md)
-- [인가 (RBAC)](docs/security/authorization.md)
-- [TLS 암호화](docs/security/tls-encryption.md)
-
-### 5단계: 관찰 가능성
-- [모니터링](docs/observability/monitoring.md)
-- [슬로우 로그](docs/observability/slow-logs.md)
-
-## 커스텀 커맨드
-
-| 커맨드 | 설명 |
-|--------|------|
-| `/new-doc` | 새 문서 스캐폴딩 |
-| `/new-runbook` | 운영 런북 생성 |
-| `/review-doc` | 문서 품질 검토 |
-| `/add-troubleshooting` | 트러블슈팅 섹션 추가 |
-| `/search-kb` | 지식 베이스 검색 |
+| 항목 | 값 |
+|------|-----|
+| Platform | EKS |
+| Elasticsearch | 8.x |
+| Operator | ECK v2.x |
+| Namespace | `elasticsearch` |
+| Cluster | `my-cluster` |

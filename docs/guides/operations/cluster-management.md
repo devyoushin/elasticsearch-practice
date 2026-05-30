@@ -28,7 +28,7 @@ spec:
 
 ```bash
 # 변경 적용
-kubectl apply -f config/elasticsearch-cluster.yaml
+kubectl apply -f ops/config/elasticsearch-cluster.yaml
 
 # 노드 추가 확인
 kubectl get pods -n elasticsearch -w

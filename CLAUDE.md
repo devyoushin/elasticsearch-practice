@@ -14,19 +14,19 @@
 
 ## 파일 명명 규칙
 
-- 위치: `docs/{category}/{topic}.md`
+- 위치: `docs/guides/{category}/{topic}.md`
 - 형식: kebab-case (소문자, 하이픈)
-- 예시: `docs/operations/index-management.md`
+- 예시: `docs/guides/operations/index-management.md`
 
 ## 카테고리
 
 | 카테고리 | 디렉토리 | 내용 |
 |----------|----------|------|
-| 핵심 개념 | `core-concepts/` | 아키텍처, 인덱스 설계, Query DSL |
-| 운영 | `operations/` | 인덱스/클러스터 관리, 스냅샷 |
-| 성능 | `performance/` | 인덱싱/검색 최적화, 리소스 튜닝 |
-| 보안 | `security/` | 인증, 인가, TLS |
-| 관찰 가능성 | `observability/` | 모니터링, 슬로우 로그 |
+| 핵심 개념 | `docs/guides/core-concepts/` | 아키텍처, 인덱스 설계, Query DSL |
+| 운영 | `docs/guides/operations/` | 인덱스/클러스터 관리, 스냅샷 |
+| 성능 | `docs/guides/performance/` | 인덱싱/검색 최적화, 리소스 튜닝 |
+| 보안 | `docs/guides/security/` | 인증, 인가, TLS |
+| 관찰 가능성 | `docs/guides/observability/` | 모니터링, 슬로우 로그 |
 
 ## 문서 작성 원칙
 
