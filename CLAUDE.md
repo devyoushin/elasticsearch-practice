@@ -52,6 +52,10 @@
 - `/add-troubleshooting {file}` - 트러블슈팅 추가
 - `/search-kb {keyword}` - 지식 검색
 
+## 로컬 워크스페이스
+
+`.claude/`는 Claude Code 로컬 워크스페이스입니다. 개인 설정, 임시 커맨드, 로컬 세션 정보가 섞일 수 있으므로 Git에 커밋하지 않습니다.
+
 ## Backlog
 
 - [ ] Ingest pipeline (processors, conditionals)

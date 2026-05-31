@@ -1,5 +1,6 @@
 # Claude Code 로컬 설정
 CLAUDE.local.md
+.claude/
 .claude/settings.local.json
 
 # macOS
