@@ -8,7 +8,7 @@
 |------|-----|
 | 관련 API | `/_cat/indices`, `/_cluster/health` |
 | 적용 환경 | Elasticsearch 8.x, ECK |
-| 관련 개념 | [인덱스 설계](../core-concepts/index-design.md) |
+| 관련 개념 | [인덱스 설계](../01-core-concepts/index-design.md) |
 
 ### 사용 목적
 - ...

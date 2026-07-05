@@ -8,7 +8,7 @@ Elasticsearch의 Slow Log는 지정한 임계값을 초과하는 검색(search)�
 |------|-----|
 | 관련 API | `PUT /{index}/_settings` (slowlog threshold) |
 | 로그 위치 | Elasticsearch pod 로그 (`kubectl logs`) |
-| 관련 개념 | [검색 성능](../performance/search-performance.md) |
+| 관련 개념 | [검색 성능](../03-performance/search-performance.md) |
 
 ---
 

@@ -8,7 +8,7 @@ ECK 환경에서의 Elasticsearch 클러스터 운영 작업을 다룬다. 노�
 |------|-----|
 | 관련 API | `/_cluster/settings`, `/_cluster/reroute`, `/_nodes` |
 | 적용 환경 | Elasticsearch 8.x, ECK v2.x |
-| 관련 개념 | [클러스터 아키텍처](../core-concepts/cluster-architecture.md) |
+| 관련 개념 | [클러스터 아키텍처](../01-core-concepts/cluster-architecture.md) |
 
 ---
 

@@ -8,7 +8,7 @@ Elasticsearch 검색 속도를 최적화하기 위한 쿼리 설계, 캐시 활�
 |------|-----|
 | 관련 API | `GET /{index}/_search`, `GET /{index}/_search?profile=true` |
 | 관련 메트릭 | `indices.search.query_time_in_millis`, `indices.search.fetch_time_in_millis` |
-| 관련 개념 | [Query DSL](../core-concepts/query-dsl.md) |
+| 관련 개념 | [Query DSL](../01-core-concepts/query-dsl.md) |
 
 ---
 

@@ -8,7 +8,7 @@ Elasticsearch의 JVM Heap, Thread Pool, Circuit Breaker, OS 레벨 설정을 조
 |------|-----|
 | 관련 API | `GET /_nodes/stats`, `GET /_cluster/settings` |
 | 관련 메트릭 | `jvm.heap_used_percent`, `thread_pool.*.rejected` |
-| 관련 개념 | [클러스터 아키텍처](../core-concepts/cluster-architecture.md) |
+| 관련 개념 | [클러스터 아키텍처](../01-core-concepts/cluster-architecture.md) |
 
 ---
 

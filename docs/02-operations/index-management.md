@@ -8,7 +8,7 @@ Elasticsearch 인덱스의 생성, 수정, 삭제, 별칭(alias) 관리와 ILM �
 |------|-----|
 | 관련 API | `PUT /{index}`, `POST /_aliases`, `PUT /_ilm/policy/{name}` |
 | 적용 환경 | Elasticsearch 8.x |
-| 관련 개념 | [인덱스 설계](../core-concepts/index-design.md) |
+| 관련 개념 | [인덱스 설계](../01-core-concepts/index-design.md) |
 
 ---
 

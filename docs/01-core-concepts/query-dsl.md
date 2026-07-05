@@ -8,7 +8,7 @@ Elasticsearch의 Query DSL(Domain Specific Language)은 JSON 기반의 검색 �
 |------|-----|
 | 관련 API | `GET /{index}/_search`, `POST /{index}/_search` |
 | 적용 환경 | Elasticsearch 8.x |
-| 관련 개념 | [인덱스 설계](index-design.md), [검색 성능](../performance/search-performance.md) |
+| 관련 개념 | [인덱스 설계](index-design.md), [검색 성능](../03-performance/search-performance.md) |
 
 ---
 

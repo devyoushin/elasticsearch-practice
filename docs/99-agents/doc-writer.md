@@ -24,7 +24,7 @@ Elasticsearch 운영 전문가 (ECK 환경 5년+ 경험)
 
 ## 참조 규칙
 
-- `docs/rules/doc-writing.md`
-- `docs/rules/elasticsearch-conventions.md`
-- `docs/rules/security-checklist.md`
-- `docs/rules/monitoring.md`
+- `docs/90-standards/doc-writing.md`
+- `docs/90-standards/elasticsearch-conventions.md`
+- `docs/90-standards/security-checklist.md`
+- `docs/90-standards/monitoring.md`

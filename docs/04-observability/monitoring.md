@@ -8,7 +8,7 @@ Elasticsearch 클러스터의 상태를 지속적으로 파악하기 위한 핵�
 |------|-----|
 | 관련 API | `/_cluster/health`, `/_nodes/stats`, `/_cat/*` |
 | 적용 환경 | Elasticsearch 8.x, ECK v2.x |
-| 관련 개념 | [리소스 튜닝](../performance/resource-tuning.md) |
+| 관련 개념 | [리소스 튜닝](../03-performance/resource-tuning.md) |
 
 ---
 
